@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="primaryContainer" alignment="CENTER" prefHeight="750.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tcss360.MazeViewController">
+    <children>
+        <MenuBar prefHeight="25.0" prefWidth="800.0">
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem fx:id="saveBtn" onAction="#onClickSave" text="Save" />
+                        <Menu fx:id="loadMenu" text="Load" />
+                    </items>
+                </Menu>
+                <Menu text="Help">
+               <items>
+                  <MenuItem fx:id="toolbarMainMenuBtn" mnemonicParsing="false" onAction="#onToolBarMainMenuClick" text="Main Menu" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Volume">
+               <graphic>
+                  <Slider fx:id="volumeSlider" value="30.0" />
+               </graphic>
+            </Menu>
+            </menus>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+        </MenuBar>
+        <StackPane alignment="TOP_CENTER">
+            <children>
+                <GridPane fx:id="myMazePane" alignment="CENTER">
+               <padding>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </padding>
+                </GridPane>
+                <StackPane fx:id="mainMenuPane" alignment="CENTER">
+                    <children>
+                        <VBox alignment="CENTER" spacing="50.0">
+                            <children>
+                                <ImageView fitWidth="600.0" preserveRatio="true">
+                                    <image>
+                                        <Image url="@title.png" />
+                                    </image>
+                                </ImageView>
+                        <Button fx:id="resumeBtn" onAction="#onResume" prefHeight="55.0" prefWidth="150.0" text="Resume">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets top="1.0" />
+                           </padding>
+                        </Button>
+                                <Button fx:id="newGameBtn" onAction="#onPlayNewGame" prefHeight="55.0" prefWidth="150.0" text="New Game">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets top="1.0" />
+                                    </padding>
+                                </Button>
+                                <Button fx:id="tutorialBtn" onAction="#onClickTutorial" prefHeight="55.0" prefWidth="150.0" text="Tutorial">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets top="1.0" />
+                                    </padding>
+                                </Button>
+                                <Button fx:id="exitBtn" onAction="#onExit" prefHeight="55.0" prefWidth="150.0" text="Exit">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets top="1.0" />
+                                    </padding>
+                                </Button>
+                            </children>
+                            <StackPane.margin>
+                                <Insets />
+                            </StackPane.margin>
+                        </VBox>
+                    </children>
+                </StackPane>
+            <VBox fx:id="trueFalsePane" alignment="CENTER" spacing="30.0">
+               <children>
+                  <Label fx:id="trueFalseLabel" alignment="CENTER" contentDisplay="CENTER" text="Prompt" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="trueBtn" mnemonicParsing="false" onAction="#onTrueClick" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0">
+                                 <image>
+                                    <Image url="@marioQuestionBlock.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="True">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="falseBtn" mnemonicParsing="false" onAction="#onFalseClick" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0">
+                                 <image>
+                                    <Image url="@marioQuestionBlock.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label text="False">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="multiChoicePane" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0">
+               <children>
+                  <Label fx:id="multiChoicePrompt" alignment="CENTER" text="Prompt" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <VBox alignment="TOP_RIGHT" spacing="30.0">
+                           <children>
+                              <Button fx:id="optionOneBtn" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0">
+                                       <image>
+                                          <Image url="@marioQuestionBlock.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="optionTwoBtn" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0">
+                                       <image>
+                                          <Image url="@marioQuestionBlock.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="optionThreeBtn" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0">
+                                       <image>
+                                          <Image url="@marioQuestionBlock.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="optionFourBtn" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="60.0" fitWidth="60.0">
+                                       <image>
+                                          <Image url="@marioQuestionBlock.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" spacing="72.0">
+                           <children>
+                              <Label fx:id="optionLabelOne" alignment="CENTER" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="optionLabelTwo" alignment="CENTER" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="optionLabelThree" alignment="CENTER" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="optionLabelFour" alignment="CENTER" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="shortAnsPane" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="shortAnsPrompt" alignment="CENTER" text="Prompt" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="shortAnsEnterBtn" mnemonicParsing="false" onMouseClicked="#onShortAnsMouseClicked" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0">
+                                 <image>
+                                    <Image url="@marioQuestionBlock.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="shortAnsTextField" onKeyPressed="#onShortAnsEnterKeyPressed">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="gameOverPane" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="returnMainMenuBtn" mnemonicParsing="false" onAction="#onMainMenuClick" text="Main Menu" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="100.0" />
+               </padding>
+            </VBox>
+            </children>
+        </StackPane>
+    </children>
+</VBox>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.tcss360.MazeApp">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="Save">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Save #1" />
+                        <MenuItem mnemonicParsing="false" text="Save #2" />
+                        <MenuItem mnemonicParsing="false" text="Save #3" />
+                        <MenuItem mnemonicParsing="false" text="Save #4" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Load">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Load #1" />
+                        <MenuItem mnemonicParsing="false" text="Load #2" />
+                        <MenuItem mnemonicParsing="false" text="Load #3" />
+                        <MenuItem mnemonicParsing="false" text="Load #4" />
+                     </items>
+                  </Menu>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Tutorial" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="mainMenuPane" prefHeight="381.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="-54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@background_intro.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="newGameBtn" focusTraversable="false" layoutX="304.0" layoutY="227.0" mnemonicParsing="false" onAction="#onPlayNewGame" prefHeight="84.0" prefWidth="139.0" text="New Game" />
+            <Button fx:id="tutorial" layoutX="345.0" layoutY="385.0" mnemonicParsing="false" onAction="#onClickTutorial" text="Tutorial" />
+            <Button fx:id="exitBtn" onAction="#onExit" layoutX="356.0" layoutY="496.0" mnemonicParsing="false" text="Exit" />
+            <ImageView fitHeight="136.0" fitWidth="439.0" layoutX="154.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: glow;">
+               <image>
+                  <Image url="@title.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
